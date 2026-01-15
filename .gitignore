@@ -1,0 +1,7 @@
+data/
+*.tgz
+*.mat
+*.jpg
+*.pth
+__pycache__/
+
