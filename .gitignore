@@ -3,5 +3,8 @@ data/
 *.mat
 *.jpg
 *.pth
+*.pt
+yolov5s-cls.pt
+results/
 __pycache__/
-
+.ipynb_checkpoints/
