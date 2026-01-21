@@ -1,4 +1,5 @@
 Assignment 4 – Flower Classification Using CNNs and Transfer Learning
+===============================================================================================================
 Overview
 
 This project implements flower image classification using transfer learning with Convolutional Neural Networks (CNNs).
@@ -6,15 +7,16 @@ The goal is to classify images into 102 flower categories and output probabilist
 
 Two mandatory pretrained models are used and compared:
 
-VGG19
+.VGG19
 
 YOLOv5 (classification variant)
 
 Each model is trained and evaluated using two different random seeds to ensure robustness, as required by the assignment.
-
+----------------------------------------------------------------------------------------------------------------
 Models Used
+================================================================================================================
 1. VGG19
-
+----------------------------------------------------------------------------------------------------------------
 Pretrained on ImageNet
 
 Backbone layers frozen
@@ -25,7 +27,7 @@ Trained using standard PyTorch training loop
 
 
 2. YOLOv5 (Classification Model)
-
+----------------------------------------------------------------------------------------------------------------
 Model used: yolov5s-cls.pt (Ultralytics classification variant)
 
 Pretrained on ImageNet
@@ -35,6 +37,7 @@ Backbone frozen, classification head retrained for 102 classes
 Used as a generic CNN classifier within a custom PyTorch training loop
 
 Dataset
+================================================================================================================
 Primary Dataset (Required)
 
 Oxford Flowers 102 Dataset
@@ -59,6 +62,7 @@ Seed 2
 This satisfies the requirement to repeat the random split at least twice.
 
 Preprocessing
+===================================================================================================================
 
 Images resized to 224 × 224
 
@@ -69,7 +73,7 @@ Identical preprocessing used across VGG19 and YOLOv5 for consistency
 Data loaders created separately for each seed to ensure reproducibility
 
 Training Details
-
+=========================================================================================================================
 Loss Function: Cross-Entropy Loss
 
 Optimizer: Adam
