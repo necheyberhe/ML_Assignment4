@@ -12,6 +12,8 @@ Two mandatory pretrained models are used and compared:
 YOLOv5 (classification variant)
 
 Each model is trained and evaluated using two different random seeds to ensure robustness, as required by the assignment.The source code is located at :
+
+
 https://github.com/necheyberhe/Assignment4/blob/main/Main.ipynb
 ----------------------------------------------------------------------------------------------------------------
 Models Used
