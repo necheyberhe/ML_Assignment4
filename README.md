@@ -1,4 +1,4 @@
-Assignment 4 – Flower Classification Using CNNs and Transfer Learning
+Assignment 4 – Practice the usage of  CNNs
 ===============================================================================================================
 Overview
 
