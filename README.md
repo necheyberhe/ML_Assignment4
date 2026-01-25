@@ -5,12 +5,12 @@ Overview
 This project implements flower image classification using transfer learning with Convolutional Neural Networks (CNNs).
 The goal is to classify images into 102 flower categories and output probabilistic predictions for each class.
 
-Two mandatory pretrained models are used and compared:
+Three mandatory pretrained models are used and compared:
 
 .VGG19
 
 YOLOv5 (classification variant)
-
+Resnet50
 Each model is trained and evaluated using two different random seeds to ensure robustness, as required by the assignment.The source code is located at :
 
 
@@ -33,12 +33,26 @@ Trained using standard PyTorch training loop
 ----------------------------------------------------------------------------------------------------------------
 Model used: yolov5s-cls.pt (Ultralytics classification variant)
 
-Pretrained on ImageNet
-
 Backbone frozen, classification head retrained for 102 classes
 
-Used as a generic CNN classifier within a custom PyTorch training loop
+We used Ultralytics YOLOv5 classification (YOLOv5-CLS) pretrained on ImageNet, retraining the classifier head for 102 classes.
 
+3. Resnet50
+------------------------------------------------------------------------------------------------------------------------
+Architecture
+
+Backbone: torchvision.models.resnet50 pretrained on ImageNet
+
+Head: final fully-connected layer replaced with nn.Linear(in_features, 102)
+
+If freeze_backbone=True:
+
+All pretrained backbone layers are frozen (requires_grad = False)
+
+Only the final classifier layer model.fc is trainable
+
+If freeze_backbone=False:
+Entire network is trainable
 Dataset
 ================================================================================================================
 Primary Dataset (Required)
