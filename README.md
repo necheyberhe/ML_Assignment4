@@ -53,6 +53,7 @@ Only the final classifier layer model.fc is trainable
 
 If freeze_backbone=False:
 Entire network is trainable
+
 Dataset
 ================================================================================================================
 Primary Dataset (Required)
