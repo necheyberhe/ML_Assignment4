@@ -1,4 +1,13 @@
-# Assignment 4 – Practice the usage of  CNNs
+# ML_Assignment4 – Flower Image Classification Using CNNs
+
+### Students
+
+| Name              |  email                    |
+|-------------------|---------------------------|
+| Omer Eliyahu      |  Omereliy@post.bgu.ac.il  |
+| Nechi Berhe Weldu |  weldu@post.bgu.ac.il     |
+| Amit Ner Gaon     |  amitner@post.bgu.ac.il   |
+
 
 ## Overview
 
