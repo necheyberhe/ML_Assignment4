@@ -65,35 +65,37 @@ https://www.robots.ox.ac.uk/~vgg/data/flowers/102/
 
 #### Dataset Splits
 
-For each experiment: Training: 50%, Validation: 25%, Test: 25%.
+* For each experiment: Training: 50%, Validation: 25%, Test: 25%.
 
-The dataset split is randomized and repeated twice using different seeds (Seed 1, Seed 2).
+* The dataset split is randomized and repeated twice using different seeds (Seed 1, Seed 2).
 
-This satisfies the requirement to repeat the random split at least twice.
+* This satisfies the requirement to repeat the random split at least twice.
 
 ### Preprocessing
 
-Images resized to 224 × 224.
+* Images resized to 224 × 224.
 
-Normalization applied using ImageNet mean and standard deviation.
+* Normalization applied using ImageNet mean and standard deviation.
 
-Identical preprocessing used across VGG19 and YOLOv5 for consistency.
+* Identical preprocessing used across VGG19 and YOLOv5 for consistency.
 
-Data loaders created separately for each seed to ensure reproducibility.
+* Data loaders created separately for each seed to ensure reproducibility.
 
 
 ### Training Details
 
-Loss Function: Cross-Entropy Loss.
+* Loss Function: Cross-Entropy Loss.
 
-Optimizer: Adam.
+* Optimizer: Adam.
 
-Learning Rate Scheduling: ReduceLROnPlateau.
+*  Rate Scheduling: ReduceLROnPlateau.
+  
+* Each model is trained independently for Seed 1 and Seed 2.
 
-Metrics Tracked Per Epoch:
+
+**Metrics Tracked Per Epoch:**
 
 1. Accuracy (train / validation / test)
 
 2. Cross-entropy loss (train / validation / test)
 
-Each model is trained independently for Seed 1 and Seed 2.
