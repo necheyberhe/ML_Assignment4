@@ -1,107 +1,90 @@
-Assignment 4 – Practice the usage of  CNNs
-===============================================================================================================
-Overview
+# Assignment 4 – Practice the usage of  CNNs
+
+## Overview
 
 This project implements flower image classification using transfer learning with Convolutional Neural Networks (CNNs).
 The goal is to classify images into 102 flower categories and output probabilistic predictions for each class.
 
 Three mandatory pretrained models are used and compared:
 
-.VGG19
-
-YOLOv5 (classification variant)
-Resnet50
-Each model is trained and evaluated using two different random seeds to ensure robustness, as required by the assignment.The source code is located at :
-
-
-https://github.com/necheyberhe/Assignment4/blob/main/Main.ipynb
-----------------------------------------------------------------------------------------------------------------
-Models Used
-================================================================================================================
 1. VGG19
-----------------------------------------------------------------------------------------------------------------
-Pretrained on ImageNet
-
-Backbone layers frozen
-
-Final fully connected layer replaced to output 102 classes
-
-Trained using standard PyTorch training loop
-
-
-2. YOLOv5 (Classification Model)
-----------------------------------------------------------------------------------------------------------------
-Model used: yolov5s-cls.pt (Ultralytics classification variant)
-
-Backbone frozen, classification head retrained for 102 classes
-
-We used Ultralytics YOLOv5 classification (YOLOv5-CLS) pretrained on ImageNet, retraining the classifier head for 102 classes.
-
+2. YOLOv5 (classification variant)
 3. Resnet50
-------------------------------------------------------------------------------------------------------------------------
-Architecture
 
-Backbone: torchvision.models.resnet50 pretrained on ImageNet
 
-Head: final fully-connected layer replaced with nn.Linear(in_features, 102)
+Each model is trained and evaluated using two different random seeds to ensure robustness, as required by the assignment. 
 
-If freeze_backbone=True:
+The source code is available at: https://github.com/necheyberhe/Assignment4.git
 
-All pretrained backbone layers are frozen (requires_grad = False)
 
-Only the final classifier layer model.fc is trainable
+## Models
 
-If freeze_backbone=False:
-Entire network is trainable
+### VGG19
 
-Dataset
-================================================================================================================
-Primary Dataset (Required)
+* Pretrained on ImageNet.
+* Backbone layers frozen.
+* Output fully connected layer replaced to output 102 classes.
+* Trained using standard PyTorch training loop.
+
+
+### YOLOv5 (Classification Model)
+
+* Model used: yolov5s-cls.pt (Ultralytics classification variant).
+* Backbone frozen.
+* Classification head retrained for 102 classes.
+
+
+### Resnet50
+
+* Backbone: torchvision.models.resnet50.
+* Pretrained on ImageNet.
+* Head: final fully-connected layer replaced with nn.Linear(in_features, 102).
+* If freeze_backbone=True:
+  * All pretrained backbone layers are frozen (requires_grad = False).
+  * Only the final classifier layer model.fc is trainable.
+* If freeze_backbone=False:
+  * Entire network is trainable.
+
+
+
+## Dataset
+
+### Primary Dataset (Required)
 
 Oxford Flowers 102 Dataset
 https://www.robots.ox.ac.uk/~vgg/data/flowers/102/
 
-Dataset Splits
+#### Dataset Splits
 
-For each experiment:
+For each experiment: Training: 50%, Validation: 25%, Test: 25%.
 
-Training: 50%
-
-Validation: 25%
-
-Test: 25%
-
-The dataset split is randomized and repeated twice using different seeds:
-
-Seed 1
-
-Seed 2
+The dataset split is randomized and repeated twice using different seeds (Seed 1, Seed 2).
 
 This satisfies the requirement to repeat the random split at least twice.
 
-Preprocessing
-===================================================================================================================
+### Preprocessing
 
-Images resized to 224 × 224
+Images resized to 224 × 224.
 
-Normalization applied using ImageNet mean and standard deviation
+Normalization applied using ImageNet mean and standard deviation.
 
-Identical preprocessing used across VGG19 and YOLOv5 for consistency
+Identical preprocessing used across VGG19 and YOLOv5 for consistency.
 
-Data loaders created separately for each seed to ensure reproducibility
+Data loaders created separately for each seed to ensure reproducibility.
 
-Training Details
-=========================================================================================================================
-Loss Function: Cross-Entropy Loss
 
-Optimizer: Adam
+### Training Details
 
-Learning Rate Scheduling: ReduceLROnPlateau
+Loss Function: Cross-Entropy Loss.
+
+Optimizer: Adam.
+
+Learning Rate Scheduling: ReduceLROnPlateau.
 
 Metrics Tracked Per Epoch:
 
-Accuracy (train / validation / test)
+1. Accuracy (train / validation / test)
 
-Cross-entropy loss (train / validation / test)
+2. Cross-entropy loss (train / validation / test)
 
 Each model is trained independently for Seed 1 and Seed 2.
